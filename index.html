@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Varela+Round&display=swap"
+        rel="stylesheet">
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/4ee16d8c51.js" crossorigin="anonymous"></script>
+    <!-- Style Sheet -->
+    <link rel="stylesheet" href="./style.css">
+    <title>Age Calculator</title>
+</head>
+
+<body>
+
+    <div id="container">
+        <h2>Age Calculator</h2>
+        <label for="birthdate">Enter Your Birthdate</label>
+        <input type="date" id="birthdate">
+        <button id="cal-age" onclick="clickAgeBtn()">Calculate Age </button>
+        <p id="date-error"></p>
+    </div>
+
+
+    <div class="user-container">
+        <h3>Enter Your Name</h3>
+        <input type="text" id="name" placeholder="Name Here" autofocus>
+        <div class="buttons">
+            <button id="get-age">Get Age</button>
+            <button class="user-cross">Close</button>
+        </div>
+        <p id="error"></p>
+    </div>
+
+
+    <div class="age-info">
+        <h5>Hey, <b id="user"></b></h5>
+        <p>You Are <b id="result"></b></p>
+        <button id="age-close">Close</button>
+    </div>
+
+    <i class="fa-solid fa-list"></i>
+
+    <div class="history-container ">
+        <i class="fa-solid fa-x"></i>
+        <h2 class="heading">History</h2>
+        <hr>
+       <!-- Dynamic Value -->
+    </div>
+
+
+    <script src="./script.js"></script>
+</body>
+
+</html>
