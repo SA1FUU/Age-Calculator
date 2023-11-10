@@ -8,6 +8,7 @@ let error = document.getElementById("error")
 let ageInfo = document.querySelector(".age-info")
 let ageClose = document.getElementById("age-close")
 let user = document.getElementById("user")
+let loader = document.querySelector(".loader")
 
 function clickAgeBtn() {
     let today = new Date();
@@ -37,13 +38,16 @@ getAge.addEventListener("click", () => {
     }
     else {
         calculateAge()
-        historyData()
-        user.innerText = document.getElementById("name").value
+        loader.classList.add("showloader")
         userContainer.style.visibility = "hidden"
-        ageInfo.style.visibility = "visible"
-        error.textContent = ""
-        userName.value = ""
-        document.getElementById("date-error").innerText = ""
+        setTimeout(() => {
+            user.innerText = document.getElementById("name").value
+            loader.classList.remove("showloader")
+            ageInfo.style.visibility = "visible"
+            error.textContent = ""
+            userName.value = ""
+            document.getElementById("date-error").innerText = ""
+        }, 1200);
     }
 })
 
@@ -51,7 +55,7 @@ ageClose.addEventListener("click", () => {
     ageInfo.style.visibility = "hidden"
     container.style.filter = "blur(0)"
     user.innerText = ""
-
+    document.getElementById("birthdate").value = "00/00/0000"
 })
 
 
@@ -80,60 +84,17 @@ function calculateAge() {
 }
 
 
-let listOpenBtn = document.querySelector(".fa-list")
-let listCloseBtn = document.querySelector(".fa-x")
-
-listOpenBtn.addEventListener("click", () => {
-    document.querySelector(".history-container").classList.add("show")
-})
-
-listCloseBtn.addEventListener("click", () => {
-    document.querySelector(".history-container").classList.remove("show")
-})
-
-
-function historyData() {
-    let birthdate = new Date(document.getElementById("birthdate").value);
-    let today = new Date();
-
-    let yearsDiff = today.getFullYear() - birthdate.getFullYear();
-    let monthsDiff = today.getMonth() - birthdate.getMonth();
-    let daysDiff = today.getDate() - birthdate.getDate();
-
-    if (daysDiff < 0) {
-        monthsDiff--;
-        daysDiff += 30;
+document.querySelector("#birthdate").addEventListener("keypress", function (event) {
+    if (event.key === "Enter") {
+        event.preventDefault();
+        document.getElementById("cal-age").click();
+        document.querySelector("#name").focus()
     }
+});
 
-    if (monthsDiff < 0) {
-        yearsDiff--;
-        monthsDiff += 12;
+document.querySelector("#name").addEventListener("keypress", function (event) {
+    if (event.key === "Enter") {
+        event.preventDefault();
+        document.getElementById("get-age").click();
     }
-
-    let ageText = `${yearsDiff}Y, ${monthsDiff}M, ${daysDiff}D`;
-
-    let historContainer = document.querySelector(".history-container")
-
-    let historyBox = document.createElement("div")
-    historyBox.classList.add("history")
-
-    historContainer.appendChild(historyBox)
-
-    let historyName = document.createElement("h4")
-    historyName.innerText = userName.value
-    historyBox.appendChild(historyName)
-
-    let historyDate = document.createElement("h4")
-    historyDate.innerText = ageText
-    historyBox.appendChild(historyDate)
-
-    let i = document.createElement("i")
-    i.classList.add("fa-solid")
-    i.classList.add("fa-trash")
-
-    historyBox.appendChild(i)
-
-    i.addEventListener("click", () => {
-        historContainer.removeChild(historyBox)
-    })
-}
+});
