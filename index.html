@@ -21,11 +21,10 @@
     <div id="container">
         <h2>Age Calculator</h2>
         <label for="birthdate">Enter Your Birthdate</label>
-        <input type="date" id="birthdate">
+        <input type="date" id="birthdate" autofocus>
         <button id="cal-age" onclick="clickAgeBtn()">Calculate Age </button>
         <p id="date-error"></p>
     </div>
-
 
     <div class="user-container">
         <h3>Enter Your Name</h3>
@@ -37,22 +36,17 @@
         <p id="error"></p>
     </div>
 
-
     <div class="age-info">
         <h5>Hey, <b id="user"></b></h5>
         <p>You Are <b id="result"></b></p>
         <button id="age-close">Close</button>
     </div>
 
-    <i class="fa-solid fa-list"></i>
-
-    <div class="history-container ">
-        <i class="fa-solid fa-x"></i>
-        <h2 class="heading">History</h2>
-        <hr>
-       <!-- Dynamic Value -->
+    <div class="loader">
+        <span class="dot dot1"></span>
+        <span class="dot dot2"></span>
+        <span class="dot dot3"></span>
     </div>
-
 
     <script src="./script.js"></script>
 </body>
