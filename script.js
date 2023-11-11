@@ -21,6 +21,7 @@ function clickAgeBtn() {
     else {
         userContainer.style.visibility = "visible"
         container.style.filter = "blur(15px)"
+        document.querySelector("#name").focus()
     }
 }
 
@@ -47,7 +48,7 @@ getAge.addEventListener("click", () => {
             error.textContent = ""
             userName.value = ""
             document.getElementById("date-error").innerText = ""
-        }, 1200);
+        }, 1500);
     }
 })
 
@@ -98,3 +99,16 @@ document.querySelector("#name").addEventListener("keypress", function (event) {
         document.getElementById("get-age").click();
     }
 });
+
+
+document.querySelector(".fa-info").addEventListener('click', () => {
+    document.querySelector('.info-para').classList.add("show-para")
+    document.querySelector('.fa-info').style.display = "none"
+    document.querySelector('.fa-x').style.display = "block"
+})
+
+document.querySelector(".fa-x").addEventListener('click', () => {
+    document.querySelector('.info-para').classList.remove("show-para")
+    document.querySelector('.fa-x').style.display = "none"
+    document.querySelector('.fa-info').style.display = "block"
+})
