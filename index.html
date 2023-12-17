@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -24,7 +23,7 @@
     <div id="container">
         <h2>Age Calculator</h2>
         <label for="birthdate">Enter Your Birthdate</label>
-        <input type="date" id="birthdate" autofocus>
+        <input type="date" id="birthdate" autofocus required>
         <button id="cal-age" onclick="clickAgeBtn()">Calculate Age </button>
         <p id="date-error"></p>
     </div>
@@ -43,11 +42,11 @@
         
             <i class="fa-solid fa-info"></i>
             <i class="fa-solid fa-x"></i>
-             <p class="info-para">Provided Details Might Not Be Accurate As It is Being Calculated Assuming an Average of 30 Days Per Month</p>
+             <p class="info-para">Provided Details Might Not Be Completely Accurate As It is Being Calculated Assuming an Average of 30 Days Per Month</p>
 
              
-        <h5>Hey, <b id="user"></b></h5>
-        <p>You Are <b id="result"></b></p>
+        <h3>Hey, <b id="user"></b></h3>
+        <p>You Are <b id="result"></b>Old</p>
         <button id="age-close">Close</button>
     </div>
 
