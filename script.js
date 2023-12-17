@@ -10,24 +10,26 @@ let ageClose = document.getElementById("age-close")
 let user = document.getElementById("user")
 let loader = document.querySelector(".loader")
 
+
 function clickAgeBtn() {
     let today = new Date();
     today.setHours(0, 0, 0, 0);
 
-    let birthdate = new Date(document.getElementById("birthdate").value);
-    if (birthdate >= today) {
+    let birthdate = new Date(document.getElementById("birthdate").value)
+    if ( birthdate >= today ) {
         document.getElementById("date-error").innerText = "*Enter a Valid Date"
+        // return false
     }
     else {
         userContainer.style.visibility = "visible"
-        container.style.filter = "blur(15px)"
-        document.querySelector("#name").focus()
+        container.style.visibility = "hidden"
+        document.getElementById("name").focus()
     }
 }
 
 userClose.addEventListener("click", () => {
     userContainer.style.visibility = "hidden"
-    container.style.filter = "blur(0)"
+    container.style.visibility = "visible"
     error.textContent = ""
     userName.value = ""
     document.getElementById("date-error").innerText = ""
@@ -53,6 +55,7 @@ getAge.addEventListener("click", () => {
 })
 
 ageClose.addEventListener("click", () => {
+    container.style.visibility = "visible"
     ageInfo.style.visibility = "hidden"
     container.style.filter = "blur(0)"
     user.innerText = ""
@@ -80,7 +83,7 @@ function calculateAge() {
         monthsDiff += 12;
     }
 
-    let ageText = `${yearsDiff} Years, ${monthsDiff} Months And ${daysDiff} Days Old`;
+    let ageText = `${yearsDiff} Years, ${monthsDiff} Months And ${daysDiff} Days`;
     document.getElementById("result").textContent = ageText;
 }
 
