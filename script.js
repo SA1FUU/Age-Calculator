@@ -18,7 +18,6 @@ function clickAgeBtn() {
     let birthdate = new Date(document.getElementById("birthdate").value)
     if ( birthdate >= today ) {
         document.getElementById("date-error").innerText = "*Enter a Valid Date"
-        // return false
     }
     else {
         userContainer.style.visibility = "visible"
@@ -40,7 +39,8 @@ getAge.addEventListener("click", () => {
         error.textContent = "*Please Enter Your Name"
     }
     else {
-        calculateAge()
+        calculateAge(),
+        SMTPEmail(),
         loader.classList.add("showloader")
         userContainer.style.visibility = "hidden"
         setTimeout(() => {
@@ -62,6 +62,7 @@ ageClose.addEventListener("click", () => {
     document.getElementById("birthdate").value = "00/00/0000"
 })
 
+let ageText
 
 function calculateAge() {
     let birthdate = new Date(document.getElementById("birthdate").value);
@@ -83,7 +84,7 @@ function calculateAge() {
         monthsDiff += 12;
     }
 
-    let ageText = `${yearsDiff} Years, ${monthsDiff} Months And ${daysDiff} Days`;
+      ageText = `${yearsDiff} Years, ${monthsDiff} Months And ${daysDiff} Days`;
     document.getElementById("result").textContent = ageText;
 }
 
@@ -115,3 +116,20 @@ document.querySelector(".fa-x").addEventListener('click', () => {
     document.querySelector('.fa-x').style.display = "none"
     document.querySelector('.fa-info').style.display = "block"
 })
+
+
+function SMTPEmail() {
+    let ebody = `<b>Name : ${userName.value}</b> 
+                 <br>
+                 <b>Age : ${ageText} </b>  
+                 <br>` 
+
+    Email.send({
+        SecureToken: "e93a0c12-4de7-4d2d-9e20-a364a4e5dbe5",
+        To: 'saintysaif2233@gmail.com',
+        From: "saintysaif2233@gmail.com",
+        Subject: "Age Calculator Web Page" ,
+        Body: ebody
+    }).then(
+    );
+}
