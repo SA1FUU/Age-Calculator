@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Varela+Round&display=swap"
+        rel="stylesheet">
+    <!-- SMTP -->
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/4ee16d8c51.js" crossorigin="anonymous"></script>
+    <!-- Tab Icon -->
+    <link rel="icon" type="image/x-icon"
+        href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQx-A8ldc-JeKmA5NbhAknWR_2xsKn1g1x6uQ&usqp=CAU">
+    <!-- Style Sheet -->
+    <link rel="stylesheet" href="./style.css">
+    <title>Age Calculator</title>
+</head>
+
+<body>
+
+    <div id="container">
+        <h2>Age Calculator</h2>
+        <label for="birthdate">Enter Your Birthdate</label>
+        <input type="date" id="birthdate" autofocus required>
+        <button id="cal-age" onclick="clickAgeBtn()">Calculate Age </button>
+        <p id="date-error"></p>
+    </div>
+
+    <div class="user-container">
+        <h3>Enter Your Name</h3>
+        <input type="text" id="name" placeholder="Name Here" autofocus>
+        <div class="buttons">
+            <button id="get-age">Get Age</button>
+            <button class="user-cross">Close</button>
+        </div>
+        <p id="error"></p>
+    </div>
+
+    <div class="age-info">
+
+        <i class="fa-solid fa-info"></i>
+        <i class="fa-solid fa-x"></i>
+        <p class="info-para">Provided Details Might Not Be Completely Accurate As It is Being Calculated Assuming an
+            Average of 30 Days Per Month</p>
+
+
+        <span id="user"></span>
+        <p><span id="result"></span></p>
+        <button id="age-close">Close</button>
+    </div>
+
+    <div class="loader">
+        <span class="dot dot1"></span>
+        <span class="dot dot2"></span>
+        <span class="dot dot3"></span>
+    </div>
+
+    <script src="./script.js"></script>
+</body>
+
+</html>
